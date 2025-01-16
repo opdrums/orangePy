@@ -33,7 +33,7 @@ class DriverFactory:
 
         # Opciones adicionales de Chrome
         chrome_options.add_argument("--disable-notifications")  # Desactiva notificaciones del navegador
-        chrome_options.add_argument("--start-maximized")  # Inicia el navegador maximizado
+        chrome_options.add_argument("--minimo-maximized")  # Inicia el navegador maximizado
 
         # Iniciar el driver de Chrome con las opciones configuradas
         logging.info("Iniciando el driver de Chrome...")

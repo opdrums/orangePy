@@ -1,10 +1,8 @@
 from selenium.webdriver.common.by import By
-from pages.web_base_page import WebBasePage
+from pages_setup.web_base_page import WebBasePage
 import  pytest
 
-class LoginPage(WebBasePage):
-    def __init__(self, driver=None):
-        super().__init__(driver)
+class Login(WebBasePage):
 
     # Mapeo de los elementos de la página
     username_field = (By.NAME, "username")
