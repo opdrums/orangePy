@@ -37,7 +37,7 @@ class WebBasePage(DriverFactory):
                 if indice in text_to_find:
                     ActionChains(self.driver).move_to_element(element).perform()
                     span_element = WebDriverWait(self.driver, 30).until(
-                        EC.element_to_be_clickable((By.XPATH, f"//span[text()='{indice}']"))
+                        EC.visibility_of_element_located((By.XPATH, f"//span[text()='{indice}']"))
                     )
                     span_element.click()
                     return
