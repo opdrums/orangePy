@@ -1,7 +1,6 @@
 from pages_setup.driver_factory import DriverFactory
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 
 class WebBasePage(DriverFactory):
@@ -33,12 +32,12 @@ class WebBasePage(DriverFactory):
 
         for element in elements:
             element_text_parts = element.text.split('\n')
-            for indice in element_text_parts:
-                if indice in text_to_find:
-                    ActionChains(self.driver).move_to_element(element).perform()
+            for index in element_text_parts:
+                if index in text_to_find:
                     span_element = WebDriverWait(self.driver, 30).until(
-                        EC.visibility_of_element_located((By.XPATH, f"//span[text()='{indice}']"))
+                        EC.element_to_be_clickable((By.XPATH, f"//span[text()='{index}']"))
                     )
+                    self.driver.execute_script("arguments[0].scrollIntoView(true);", span_element)
                     span_element.click()
                     return
             raise ValueError(f"El texto '{text_to_find}' no se encontró en los elementos")
