@@ -33,7 +33,8 @@ class DriverFactory:
 
         # Opciones adicionales de Chrome
         chrome_options.add_argument("--disable-notifications")  # Desactiva notificaciones
-        chrome_options.add_argument("--window-size=1920x1080")  # Define tamaño de ventana
+        #chrome_options.add_argument("--window-size=1920x1080")
+        chrome_options.add_argument("--start-maximized")
 
         # Iniciar el driver de Chrome con las opciones configuradas
         logging.info("Iniciando el driver de Chrome...")
