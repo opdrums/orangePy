@@ -34,7 +34,9 @@ class WebBasePage(DriverFactory):
             element_text_parts = element.text.split('\n')
             for indice in element_text_parts:
                 if indice in text_to_find:
-                    span_element = self.driver.find_element(By.XPATH, f"//span[text()='{indice}']")
+                    span_element = WebDriverWait(self.driver, 30).until(
+                        EC.element_to_be_clickable((By.XPATH, f"//span[text()='{indice}']"))
+                    )
                     span_element.click()
                     return
             raise ValueError(f"El texto '{text_to_find}' no se encontró en los elementos")
