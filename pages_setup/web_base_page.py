@@ -1,5 +1,3 @@
-from asyncio import timeout
-
 from pages_setup.driver_factory import DriverFactory
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC

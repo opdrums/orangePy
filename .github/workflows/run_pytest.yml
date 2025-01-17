@@ -25,10 +25,10 @@ jobs:
 
       - name: Run Pytest with HTML Report
         run: |
-          pytest --maxfail=1 --disable-warnings -q --html=report.html --self-contained-html
+          pytest --maxfail=1 --disable-warnings -q --html= reports/report.html --self-contained-html
 
       - name: Upload HTML Report as artifact
         uses: actions/upload-artifact@v3
         with:
           name: pytest-report
-          path: report.html
+          path: reports/report.html
