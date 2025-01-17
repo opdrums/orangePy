@@ -23,8 +23,13 @@ class Login(WebBasePage):
         self.enter_username(username)
         self.enter_password(password)
         self.click_login()
-        self.wait_for_element_visible(By.XPATH, "//div[1]/aside[1]/nav[1]/div[1]/a[1]/div[2]/img[1]")
 
-    def validate_element_visible(self, locator):
-        logo_orange = self.driver.find_element(By.XPATH, locator)
-        assert logo_orange.is_displayed()
+    def validation_logo_web(self):
+        self.wait_for_element_visible(By.XPATH, "//div[1]/aside/nav/div[1]/a/div[2]/img")
+
+    def validation_credential_incorrect(self):
+        self.wait_for_element_visible(By.XPATH, "//div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p")
+
+
+
+

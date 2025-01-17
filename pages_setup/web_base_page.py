@@ -21,9 +21,10 @@ class WebBasePage(DriverFactory):
         )
 
     def wait_for_element_visible(self, by, value, timeout= 10):
-        WebDriverWait(self.driver, timeout).until(
+        element = WebDriverWait(self.driver, timeout).until(
             EC.visibility_of_element_located((by, value))
         )
+        assert element.is_displayed()
 
     def click_element_by_text(self,  elements_locator, text_to_find):
 
