@@ -28,7 +28,7 @@ jobs:
           pytest --maxfail=1 --disable-warnings -q --html=report.html --self-contained-html
 
       - name: Upload HTML Report as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: pytest-report
           path: report.html
