@@ -25,7 +25,7 @@ class Login(WebBasePage):
         self.click_login()
 
     def validation_logo_web(self):
-        self.wait_for_element_visible(By.XPATH, "//div[1]/aside/nav/div[1]/a/div[2]/img")
+        self.wait_for_element_visible(By.XPATH, "//div[1]/header/div[1]/div[3]/ul/li/span")
 
     def validation_credential_incorrect(self):
         self.wait_for_element_visible(By.XPATH, "//div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p")
