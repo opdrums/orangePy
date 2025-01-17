@@ -1,6 +1,7 @@
 from pages_setup.driver_factory import DriverFactory
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 
 class WebBasePage(DriverFactory):
@@ -34,6 +35,7 @@ class WebBasePage(DriverFactory):
             element_text_parts = element.text.split('\n')
             for indice in element_text_parts:
                 if indice in text_to_find:
+                    ActionChains(self.driver).move_to_element(element).perform()
                     span_element = WebDriverWait(self.driver, 30).until(
                         EC.element_to_be_clickable((By.XPATH, f"//span[text()='{indice}']"))
                     )
